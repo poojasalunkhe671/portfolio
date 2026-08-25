@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ide-bg: var(--theme-bg, #0d1117);
+  --color-ide-sidebar: var(--theme-sidebar, #161b22);
+  --color-ide-border: var(--theme-border, #30363d);
+  --color-ide-tabActive: var(--theme-tabActive, #0d1117);
+  --color-ide-tabInactive: var(--theme-tabInactive, #161b22);
+  --color-ide-text: var(--theme-text, #c9d1d9);
+  --color-ide-muted: var(--theme-muted, #8b949e);
+  --color-ide-accent: var(--theme-accent, #00f0ff);
+  --color-ide-accentGlow: var(--theme-accentGlow, rgba(0, 240, 255, 0.2));
+  --color-ide-keyword: var(--theme-keyword, #ff7b72);
+  --color-ide-string: var(--theme-string, #a5d6ff);
+  --color-ide-function: var(--theme-function, #d2a8ff);
+  --color-ide-comment: var(--theme-comment, #8b949e);
+  
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-sans: Inter, sans-serif;
+}
+
+:root {
+  /* Default is Dark+ */
+  --theme-bg: #0d1117;
+  --theme-sidebar: #161b22;
+  --theme-border: #30363d;
+  --theme-tabActive: #0d1117;
+  --theme-tabInactive: #161b22;
+  --theme-text: #c9d1d9;
+  --theme-muted: #8b949e;
+  --theme-accent: #00f0ff;
+  --theme-accentGlow: rgba(0, 240, 255, 0.2);
+  --theme-keyword: #ff7b72;
+  --theme-string: #a5d6ff;
+  --theme-function: #d2a8ff;
+  --theme-comment: #8b949e;
+}
+
+[data-theme="monokai"] {
+  --theme-bg: #272822;
+  --theme-sidebar: #1e1f1c;
+  --theme-border: #3e3d32;
+  --theme-tabActive: #272822;
+  --theme-tabInactive: #1e1f1c;
+  --theme-text: #f8f8f2;
+  --theme-muted: #75715e;
+  --theme-accent: #a6e22e;
+  --theme-accentGlow: rgba(166, 226, 46, 0.2);
+  --theme-keyword: #f92672;
+  --theme-string: #e6db74;
+  --theme-function: #66d9ef;
+  --theme-comment: #75715e;
+}
+
+[data-theme="github-light"] {
+  --theme-bg: #ffffff;
+  --theme-sidebar: #f6f8fa;
+  --theme-border: #d0d7de;
+  --theme-tabActive: #ffffff;
+  --theme-tabInactive: #f6f8fa;
+  --theme-text: #24292f;
+  --theme-muted: #57606a;
+  --theme-accent: #0969da;
+  --theme-accentGlow: rgba(9, 105, 218, 0.2);
+  --theme-keyword: #cf222e;
+  --theme-string: #0a3069;
+  --theme-function: #8250df;
+  --theme-comment: #6e7781;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ide-bg);
+    color: var(--color-ide-text);
+    font-family: var(--font-mono);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .theme-transitioning,
+  .theme-transitioning * {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease !important;
+  }
+  
+  /* Custom Scrollbar for IDE feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-ide-sidebar);
+    border-left: 1px solid var(--color-ide-border);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-ide-border);
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-ide-muted);
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 10px var(--color-ide-accentGlow);
+  }
+  .diff-glow-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(to right, #ff5f56, #27c93f);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .diff-glow-card:hover::before {
+    opacity: 0.5;
+  }
+}
