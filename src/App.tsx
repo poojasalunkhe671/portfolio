@@ -4,7 +4,7 @@ import { CommandPalette } from "./components/CommandPalette";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Experience from "./sections/Experience";
-import GitLog from "./sections/GitLog";
+import Education from "./sections/Education";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import Contact from "./sections/Contact";
@@ -107,7 +107,7 @@ function App() {
             <Hero />
             <About />
             <Experience />
-            <GitLog />
+            <Education />
             <Projects />
             <Skills />
             <Contact />

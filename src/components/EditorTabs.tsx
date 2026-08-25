@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { ThemeSwitcher } from './ThemeSwitcher';
 
 interface EditorTabsProps {
   activeTab: string;
@@ -12,7 +11,7 @@ const INITIAL_TABS = [
   { id: 'hero', label: 'Hero.tsx' },
   { id: 'about', label: 'About.md' },
   { id: 'experience', label: 'Experience.ts' },
-  { id: 'gitlog', label: 'GitLog.tsx' },
+  { id: 'education', label: 'Education.json' },
   { id: 'projects', label: 'Projects.jsx' },
   { id: 'skills', label: 'Skills.json' },
   { id: 'contact', label: 'Contact.sh' },

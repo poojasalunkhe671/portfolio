@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileCode, FileJson, FileText, User, Terminal, FolderOpen, Copy, Blocks, Settings, Download, Star } from 'lucide-react';
+import { FileCode, FileJson, FileText, User, Terminal, FolderOpen, Copy, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface SidebarProps {
@@ -11,7 +11,7 @@ const navItems = [
   { id: 'hero', label: 'Hero.tsx', icon: FileCode },
   { id: 'about', label: 'About.md', icon: FileText },
   { id: 'experience', label: 'Experience.ts', icon: FileCode },
-  { id: 'gitlog', label: 'GitLog.tsx', icon: FileCode },
+  { id: 'education', label: 'Education.json', icon: FileJson },
   { id: 'projects', label: 'Projects.jsx', icon: FileCode },
   { id: 'skills', label: 'Skills.json', icon: FileJson },
   { id: 'contact', label: 'Contact.sh', icon: Terminal },

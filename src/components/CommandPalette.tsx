@@ -11,7 +11,6 @@ const sections = [
   { id: 'hero', title: 'Hero.tsx', type: 'component', icon: FileCode },
   { id: 'about', title: 'About.md', type: 'markdown', icon: FileText },
   { id: 'experience', title: 'Experience.ts', type: 'typescript', icon: FileCode },
-  { id: 'gitlog', title: 'GitLog.tsx', type: 'component', icon: FileCode },
   { id: 'projects', title: 'Projects.jsx', type: 'javascript', icon: FileCode },
   { id: 'skills', title: 'Skills.json', type: 'json', icon: FileJson },
   { id: 'contact', title: 'Contact.sh', type: 'script', icon: Terminal },
