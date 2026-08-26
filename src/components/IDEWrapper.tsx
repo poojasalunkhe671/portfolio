@@ -67,7 +67,7 @@ export const IDEWrapper: React.FC<IDEWrapperProps> = ({ children, activeSection,
 
       <div className="flex-1 flex flex-col min-w-0 h-full mt-12 md:mt-0">
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-12 left-0 w-full bg-ide-sidebar border-b border-ide-border z-40 p-4 shadow-xl">
+          <div className="md:hidden absolute top-12 left-0 bottom-0 bg-ide-sidebar border-r border-ide-border z-40 shadow-xl [&>div]:!flex">
              <Sidebar activeTab={activeSection} setActiveTab={setActiveSection} />
           </div>
         )}
