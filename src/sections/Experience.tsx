@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GitCommit, GitBranch, GitMerge } from 'lucide-react';
+import { GitCommit, GitBranch } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
 const Experience: React.FC = () => {

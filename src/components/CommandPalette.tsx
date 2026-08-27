@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, FileCode, FileText, FileJson, Terminal, User } from 'lucide-react';
+import { Search, FileCode, FileText, FileJson, Terminal } from 'lucide-react';
 
 interface CommandPaletteProps {
   isOpen: boolean;
