@@ -10,7 +10,7 @@ const Experience: React.FC = () => {
     <section id="experience" className="py-12">
       <div className="flex items-center gap-2 mb-8 border-b border-ide-border pb-2">
         <GitBranch size={20} className="text-ide-accent" />
-        <h2 className="text-2xl font-bold text-white">Experience.ts</h2>
+        <h2 className="text-2xl font-bold text-ide-text">Experience.ts</h2>
       </div>
 
       <div className="relative pl-6 md:pl-8 ml-4 pb-4">
@@ -42,7 +42,7 @@ const Experience: React.FC = () => {
             <div className="bg-ide-sidebar border border-ide-border rounded-lg p-5 hover:border-ide-accent/50 transition-colors">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
                 <div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-ide-accent transition-colors">
+                  <h3 className="text-xl font-bold text-ide-text group-hover:text-ide-accent transition-colors">
                     {exp.role}
                   </h3>
                   <div className="text-ide-string font-mono mt-1">

@@ -142,8 +142,8 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-12" ref={ref}>
       <div className="flex items-center gap-2 mb-8 border-b border-ide-border pb-2">
-        <Terminal size={20} className="text-white" />
-        <h2 className="text-2xl font-bold text-white">Contact.sh</h2>
+        <Terminal size={20} className="text-ide-text" />
+        <h2 className="text-2xl font-bold text-ide-text">Contact.sh</h2>
       </div>
 
       <div className="bg-ide-bg border border-ide-border rounded-lg overflow-hidden font-mono shadow-lg shadow-ide-bg/80 relative" onClick={() => inputRef.current?.focus()}>
@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
                 <div>
                   <span className="text-ide-keyword">POOJA_SALUNKHE@workspace</span> <span className="text-ide-text">~/portfolio</span>
                   <br />
-                  <span className="text-ide-accent">$</span> <span className="text-white ml-1">{entry.content}</span>
+                  <span className="text-ide-accent">$</span> <span className="text-ide-text ml-1">{entry.content}</span>
                 </div>
               )}
               {entry.type === 'output' && (
@@ -183,7 +183,7 @@ const Contact: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="bg-transparent outline-none border-none text-white ml-2 flex-1 caret-ide-text"
+              className="bg-transparent outline-none border-none text-ide-text ml-2 flex-1 caret-ide-text"
               autoComplete="off"
               spellCheck="false"
               autoFocus

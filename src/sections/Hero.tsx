@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold mb-4 text-white tracking-tight"
+          className="text-5xl md:text-7xl font-bold mb-4 text-ide-text tracking-tight"
         >
           {name}
         </motion.h1>
@@ -106,15 +106,15 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-2xl md:text-3xl text-ide-accent mb-8 h-10 flex items-center"
         >
-          <span className="text-ide-keyword mr-2">const</span> <span className="text-ide-function mr-2">role</span> = <span className="text-white mr-2">"</span>
+          <span className="text-ide-keyword mr-2">const</span> <span className="text-ide-function mr-2">role</span> = <span className="text-ide-text mr-2">"</span>
           <span className="text-ide-string">{roleText}</span>
-          <span className="text-white">"</span>
+          <span className="text-ide-text">"</span>
           <motion.span 
             animate={{ opacity: [1, 0, 1] }} 
             transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
             className="w-[12px] h-[30px] bg-ide-text ml-1 inline-block" 
           />
-          <span className="text-white">;</span>
+          <span className="text-ide-text">;</span>
         </motion.div>
 
         <motion.p 
@@ -175,7 +175,7 @@ const Hero: React.FC = () => {
                 </div>
                 <button 
                   onClick={() => setShowModal(false)}
-                  className="text-ide-muted hover:text-white transition-colors"
+                  className="text-ide-muted hover:text-ide-text transition-colors"
                 >
                   <X size={18} />
                 </button>
@@ -185,7 +185,7 @@ const Hero: React.FC = () => {
               <div className="p-6">
                 {!success ? (
                   <>
-                    <p className="text-white text-base mb-6 leading-relaxed">
+                    <p className="text-ide-text text-base mb-6 leading-relaxed">
                       {currentQuestion.q}
                     </p>
                     <div className="flex flex-col gap-3">

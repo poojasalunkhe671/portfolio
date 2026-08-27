@@ -14,7 +14,7 @@ const About: React.FC = () => {
       >
         <div className="flex items-center gap-2 mb-6 border-b border-ide-border pb-2">
           <FileText size={20} className="text-ide-muted" />
-          <h2 className="text-2xl font-bold text-white">README.md</h2>
+          <h2 className="text-2xl font-bold text-ide-text">README.md</h2>
         </div>
 
         <div className="bg-ide-sidebar border border-ide-border rounded-md overflow-hidden shadow-lg shadow-ide-bg/50">
@@ -28,7 +28,7 @@ const About: React.FC = () => {
           </div>
           
           <div className="p-6 prose prose-invert prose-pre:bg-transparent prose-pre:p-0 max-w-none">
-            <h1 className="text-white border-b border-ide-border pb-2 text-3xl font-bold mb-6"># About Me</h1>
+            <h1 className="text-ide-text border-b border-ide-border pb-2 text-3xl font-bold mb-6"># About Me</h1>
             
             <p className="text-ide-text mb-4 leading-relaxed">
               Hi, I'm <span className="text-ide-accent font-semibold">Pooja Salunkhe</span>. I'm a motivated and adaptable Software Developer with hands-on experience building responsive, user-focused web applications.
@@ -38,7 +38,7 @@ const About: React.FC = () => {
               I am skilled in developing efficient solutions, integrating systems, and improving application performance. My passion lies in delivering impactful results while continuously learning and contributing to innovative, growth-oriented teams.
             </p>
             
-            <div className="bg-[#0d1117] p-4 rounded border border-ide-border font-mono text-sm min-h-[140px] relative z-10">
+            <div className="bg-ide-bg p-4 rounded border border-ide-border font-mono text-sm min-h-[140px] relative z-10">
               <TypeAnimation
                 sequence={[
                   500,

@@ -63,7 +63,7 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
           </div>
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-ide-accent transition-colors" style={{ transform: "translateZ(30px)" }}>
+        <h3 className="text-xl font-bold text-ide-text mb-2 group-hover:text-ide-accent transition-colors" style={{ transform: "translateZ(30px)" }}>
           {project.name}
         </h3>
         
@@ -98,7 +98,7 @@ const Projects: React.FC = () => {
     <section id="projects" className="py-12">
       <div className="flex items-center gap-2 mb-8 border-b border-ide-border pb-2">
         <FolderGit2 size={20} className="text-[#d2a8ff]" />
-        <h2 className="text-2xl font-bold text-white">Projects.jsx</h2>
+        <h2 className="text-2xl font-bold text-ide-text">Projects.jsx</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

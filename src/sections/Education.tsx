@@ -94,12 +94,12 @@ const Education: React.FC = () => {
     <section id="education" className="py-12 font-mono text-sm md:text-base">
       <div className="flex items-center gap-2 mb-8 border-b border-ide-border pb-2">
         <FileJson size={20} className="text-[#e3b341]" />
-        <h2 className="text-2xl font-bold text-white font-sans">Education.json</h2>
+        <h2 className="text-2xl font-bold text-ide-text font-sans">Education.json</h2>
       </div>
 
       <div className="bg-ide-sidebar border border-ide-border rounded-lg p-6 overflow-hidden">
         <div className="text-ide-text">
-          <span className="text-white">{'{'}</span>
+          <span className="text-ide-text">{'{'}</span>
         </div>
         
         <motion.div 
@@ -112,43 +112,43 @@ const Education: React.FC = () => {
           {/* Education Array */}
           <div>
             <span className="text-ide-keyword">"education"</span>
-            <span className="text-white">: [</span>
+            <span className="text-ide-text">: [</span>
           </div>
           
           <div className="pl-6 space-y-4">
             {educationData.map((item, index) => (
               <motion.div key={index} variants={itemVariants} className="group">
-                <span className="text-white">{'{'}</span>
+                <span className="text-ide-text">{'{'}</span>
                 <div className="pl-6 border-l border-ide-border/30 ml-2 py-1 space-y-1 hover:border-ide-accent/50 transition-colors">
                   <div>
                     <span className="text-ide-function">"degree"</span>
-                    <span className="text-white">: </span>
-                    <span className="text-ide-string">"{item.degree}"</span><span className="text-white">,</span>
+                    <span className="text-ide-text">: </span>
+                    <span className="text-ide-string">"{item.degree}"</span><span className="text-ide-text">,</span>
                   </div>
                   <div>
                     <span className="text-ide-function">"institute"</span>
-                    <span className="text-white">: </span>
-                    <span className="text-ide-string">"{item.institute}"</span><span className="text-white">,</span>
+                    <span className="text-ide-text">: </span>
+                    <span className="text-ide-string">"{item.institute}"</span><span className="text-ide-text">,</span>
                   </div>
                   <div>
                     <span className="text-ide-function">"score"</span>
-                    <span className="text-white">: </span>
+                    <span className="text-ide-text">: </span>
                     <span className="text-ide-string">"{item.score}"</span>
                   </div>
                 </div>
-                <span className="text-white">{'}'}{index < educationData.length - 1 ? ',' : ''}</span>
+                <span className="text-ide-text">{'}'}{index < educationData.length - 1 ? ',' : ''}</span>
               </motion.div>
             ))}
           </div>
           
           <div>
-            <span className="text-white">],</span>
+            <span className="text-ide-text">],</span>
           </div>
 
           {/* Certifications Array */}
           <div className="pt-2">
             <span className="text-ide-keyword">"certifications"</span>
-            <span className="text-white">: [</span>
+            <span className="text-ide-text">: [</span>
             <motion.div 
               variants={badgeVariants}
               className="inline-flex items-center gap-1.5 bg-[#238636]/10 border border-[#238636]/30 text-[#3fb950] px-3 py-1 rounded-full font-sans text-xs ml-4 font-medium"
@@ -156,13 +156,13 @@ const Education: React.FC = () => {
               <CheckCircle size={14} className="text-[#3fb950]" />
               React JS Certified
             </motion.div>
-            <span className="text-white ml-2">],</span>
+            <span className="text-ide-text ml-2">],</span>
           </div>
 
           {/* Awards Array */}
           <div className="pt-2">
             <span className="text-ide-keyword">"awards"</span>
-            <span className="text-white">: [</span>
+            <span className="text-ide-text">: [</span>
             <motion.div 
               variants={glowVariants}
               whileHover="hover"
@@ -171,12 +171,12 @@ const Education: React.FC = () => {
               <Trophy size={16} />
               Meritorious Research Award
             </motion.div>
-            <span className="text-white ml-2">]</span>
+            <span className="text-ide-text ml-2">]</span>
           </div>
           
         </motion.div>
         
-        <div className="text-white mt-2">
+        <div className="text-ide-text mt-2">
           {'}'}
         </div>
       </div>

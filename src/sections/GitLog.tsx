@@ -25,7 +25,7 @@ const GitLog: React.FC = () => {
     <section id="gitlog" className="py-12 relative z-20 mb-12" ref={containerRef}>
       <div className="flex items-center gap-2 mb-8 border-b border-ide-border pb-2">
         <GitBranch size={20} className="text-[#f14e32]" />
-        <h2 className="text-2xl font-bold text-white">GitLog.tsx</h2>
+        <h2 className="text-2xl font-bold text-ide-text">GitLog.tsx</h2>
       </div>
 
       <div className="bg-ide-bg border border-ide-border rounded-lg p-6 relative overflow-hidden">

@@ -105,7 +105,7 @@ const SkillCategory = ({ title, skills, icon, delay }: { title: string, skills: 
   >
     <div className="flex items-center gap-2 mb-6 border-b border-ide-border pb-2">
       <span className="text-ide-accent">{icon}</span>
-      <h3 className="text-lg font-bold text-white">{title}</h3>
+      <h3 className="text-lg font-bold text-ide-text">{title}</h3>
     </div>
     
     <div className="space-y-4">
@@ -123,7 +123,7 @@ const Skills: React.FC = () => {
     <section id="skills" className="py-12">
       <div className="flex items-center gap-2 mb-8 border-b border-ide-border pb-2">
         <Database size={20} className="text-[#a5d6ff]" />
-        <h2 className="text-2xl font-bold text-white">Skills.json</h2>
+        <h2 className="text-2xl font-bold text-ide-text">Skills.json</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
