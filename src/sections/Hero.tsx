@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Terminal } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, Terminal, X, Check } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { useTypingSound } from '../hooks/useTypingSound';
 
 const roles = ['Problem Solver', 'Full-Stack Developer', 'React Enthusiast'];
+
+const QUESTIONS = [
+  { q: "What color is the sky on a clear day?", options: ["Green", "Blue", "Red"], a: 1 },
+  { q: "How many legs does a dog have?", options: ["2", "4", "6"], a: 1 },
+  { q: "Which of these is a fruit?", options: ["Apple", "Carrot", "Potato"], a: 0 },
+  { q: "What is 5 + 5?", options: ["8", "10", "12"], a: 1 },
+];
 
 const Hero: React.FC = () => {
   const { name, summary } = resumeData.personalInfo;
@@ -13,6 +20,35 @@ const Hero: React.FC = () => {
   const [roleText, setRoleText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // Modal state
+  const [showModal, setShowModal] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(QUESTIONS[0]);
+  const [shakeIndex, setShakeIndex] = useState<number | null>(null);
+  const [success, setSuccess] = useState(false);
+
+  const handleOpenResumeModal = () => {
+    const randomQ = QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)];
+    setCurrentQuestion(randomQ);
+    setSuccess(false);
+    setShakeIndex(null);
+    setShowModal(true);
+  };
+
+  const handleOptionClick = (index: number) => {
+    if (success) return;
+    
+    if (index === currentQuestion.a) {
+      setSuccess(true);
+      setTimeout(() => {
+        window.open('/POOJA.pdf', '_blank');
+        setShowModal(false);
+      }, 800);
+    } else {
+      setShakeIndex(index);
+      setTimeout(() => setShakeIndex(null), 400);
+    }
+  };
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
@@ -98,15 +134,13 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="flex flex-wrap gap-4"
         >
-          <a 
-            href="/POOJA.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <button 
+            onClick={handleOpenResumeModal}
             className="group flex items-center gap-2 bg-ide-accent text-ide-bg px-6 py-3 font-semibold rounded hover:bg-ide-accent/90 transition-all glow-border"
           >
             <span>Resume.pdf</span>
             <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </a>
+          </button>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="flex items-center gap-2 bg-transparent border border-ide-border text-ide-text px-6 py-3 font-semibold rounded hover:border-ide-accent hover:text-ide-accent transition-colors"
@@ -115,6 +149,90 @@ const Hero: React.FC = () => {
           </button>
         </motion.div>
       </div>
+
+      {/* Resume Gate Modal */}
+      <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-[200] flex items-center justify-center font-mono px-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setShowModal(false)}
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              className="relative w-full max-w-md bg-ide-sidebar border border-ide-border rounded-lg shadow-2xl overflow-hidden flex flex-col"
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-ide-border bg-ide-bg text-sm">
+                <div className="flex items-center gap-2 text-ide-text font-semibold">
+                  <Terminal size={16} className="text-ide-accent" />
+                  <span>verify_human.sh</span>
+                </div>
+                <button 
+                  onClick={() => setShowModal(false)}
+                  className="text-ide-muted hover:text-white transition-colors"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Modal Body */}
+              <div className="p-6">
+                {!success ? (
+                  <>
+                    <p className="text-white text-base mb-6 leading-relaxed">
+                      {currentQuestion.q}
+                    </p>
+                    <div className="flex flex-col gap-3">
+                      {currentQuestion.options.map((opt, i) => (
+                        <motion.button
+                          key={i}
+                          animate={shakeIndex === i ? { x: [-5, 5, -5, 5, 0] } : {}}
+                          transition={{ duration: 0.3 }}
+                          onClick={() => handleOptionClick(i)}
+                          className={`text-left px-4 py-3 rounded border text-sm transition-colors ${
+                            shakeIndex === i 
+                              ? 'border-red-500/50 bg-red-500/10 text-red-200' 
+                              : 'border-ide-border bg-ide-bg text-ide-text hover:border-ide-accent hover:text-ide-accent'
+                          }`}
+                        >
+                          {opt}
+                        </motion.button>
+                      ))}
+                    </div>
+                    {shakeIndex !== null && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-4 text-center"
+                      >
+                        Try again!
+                      </motion.p>
+                    )}
+                  </>
+                ) : (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center justify-center py-8 gap-4"
+                  >
+                    <div className="w-16 h-16 rounded-full bg-ide-accent/20 flex items-center justify-center">
+                      <Check size={32} className="text-ide-accent" />
+                    </div>
+                    <span className="text-ide-accent font-bold text-xl">Access Granted</span>
+                    <span className="text-ide-muted text-sm animate-pulse">Opening Resume.pdf...</span>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
